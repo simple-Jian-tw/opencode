@@ -1,0 +1,39 @@
+# OpenCode Configuration
+# This file contains the main configuration for the opencode system
+
+version: "1.0"
+
+# Project settings
+project:
+  name: "opencode"
+  description: "Configuration management for code projects"
+  author: "simple-Jian-tw"
+
+# Code formatting settings
+formatting:
+  indent_size: 2
+  indent_style: "space"
+  max_line_length: 100
+  trim_trailing_whitespace: true
+  insert_final_newline: true
+
+# Linting settings
+linting:
+  enabled: true
+  strict_mode: false
+  ignore_patterns:
+    - "*.min.js"
+    - "node_modules/*"
+    - "dist/*"
+
+# Build settings
+build:
+  output_directory: "dist"
+  source_directory: "src"
+  include_tests: false
+
+# Development settings
+development:
+  auto_reload: true
+  debug_mode: false
+  port: 3000
