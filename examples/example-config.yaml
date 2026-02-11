@@ -1,0 +1,33 @@
+# Example OpenCode Configuration
+# Copy this file to config.yaml and customize it for your project
+
+version: "1.0"
+
+project:
+  name: "my-project"
+  description: "My awesome project"
+  author: "Your Name"
+
+formatting:
+  indent_size: 4
+  indent_style: "space"
+  max_line_length: 120
+  trim_trailing_whitespace: true
+  insert_final_newline: true
+
+linting:
+  enabled: true
+  strict_mode: true
+  ignore_patterns:
+    - "*.generated.js"
+    - "vendor/*"
+
+build:
+  output_directory: "build"
+  source_directory: "src"
+  include_tests: true
+
+development:
+  auto_reload: true
+  debug_mode: true
+  port: 8080

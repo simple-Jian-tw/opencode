@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenCode Configuration Schema",
+  "description": "Schema for validating opencode configuration files",
+  "type": "object",
+  "required": ["version"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Configuration version",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Project name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Project description"
+        },
+        "author": {
+          "type": "string",
+          "description": "Project author"
+        }
+      }
+    },
+    "formatting": {
+      "type": "object",
+      "properties": {
+        "indent_size": {
+          "type": "integer",
+          "description": "Number of spaces for indentation",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "indent_style": {
+          "type": "string",
+          "description": "Indentation style",
+          "enum": ["space", "tab"]
+        },
+        "max_line_length": {
+          "type": "integer",
+          "description": "Maximum line length",
+          "minimum": 60,
+          "maximum": 200
+        },
+        "trim_trailing_whitespace": {
+          "type": "boolean",
+          "description": "Remove trailing whitespace"
+        },
+        "insert_final_newline": {
+          "type": "boolean",
+          "description": "Ensure files end with a newline"
+        }
+      }
+    },
+    "linting": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Enable linting"
+        },
+        "strict_mode": {
+          "type": "boolean",
+          "description": "Use strict linting rules"
+        },
+        "ignore_patterns": {
+          "type": "array",
+          "description": "File patterns to ignore",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "build": {
+      "type": "object",
+      "properties": {
+        "output_directory": {
+          "type": "string",
+          "description": "Build output directory"
+        },
+        "source_directory": {
+          "type": "string",
+          "description": "Source code directory"
+        },
+        "include_tests": {
+          "type": "boolean",
+          "description": "Include tests in build"
+        }
+      }
+    },
+    "development": {
+      "type": "object",
+      "properties": {
+        "auto_reload": {
+          "type": "boolean",
+          "description": "Enable auto-reload"
+        },
+        "debug_mode": {
+          "type": "boolean",
+          "description": "Enable debug mode"
+        },
+        "port": {
+          "type": "integer",
+          "description": "Development server port",
+          "minimum": 1024,
+          "maximum": 65535
+        }
+      }
+    }
+  }
+}
